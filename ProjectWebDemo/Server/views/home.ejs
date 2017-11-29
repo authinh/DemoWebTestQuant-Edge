@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title> web demo
+  </title>
+  <script src="lib/jquery.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+
+  <script src="lib/react.min.js"></script>
+  <script src="lib/react-dom.min.js"></script>
+  <script src="lib/babel.min.js"></script>
+  <script>
+
+    var socket = io("http://localhost:3000");
+
+    socket.on("Server-send-data", function(data) {
+      $("#noidung").append(data + ",")
+    })
+
+    $(document).ready(function() {
+
+      $("#mrA").click(function() {
+
+        socket.emit("Client-send-data", "hello");
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <input type="button" id="mrA"> Click send </input>
+  <label id="noidung"></label>
+  <div id="root"></div>
+
+  <div id="output"></div>
+
+  <!-- Your custom script here -->
+  <script type="text/babel" src="component/rowComponent.js">
+  </script>
+
+</body>
+
+</html>
