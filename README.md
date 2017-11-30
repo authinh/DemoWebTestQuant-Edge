@@ -5,4 +5,4 @@
   -4. Tạo Server side(1h) - done
 30/11/2017
   -1. Tạo Client Side(1h) - done
-  -2. Review code + test  - inprogress
+  -2. Review code + test  - done
