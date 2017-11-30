@@ -11,7 +11,6 @@ module.exports =
       startPrice: price,
       curPrice: price,
       volume: randomNumber(1000,1000000),
-      status: 0,
       change: 0
     };
 
@@ -27,9 +26,7 @@ module.exports =
       row.curPrice = randomChangePrice(row.curPrice);
       row.volume = randomChangeVolume(row.volume);
       // get value older value of row
-      // if newValue > olderValue then status = 1 else status =0;
-      row.status = (row.curPrice - row.startPrice>0)? 1:-1;
-      row.change = (row.curPrice - row.startPrice).toFixed(2);
+      row.change = row.curPrice - row.startPrice;
       data[index] = row;
     }
     return sortList(data);
@@ -37,21 +34,21 @@ module.exports =
 };
 
 var randomNumber = function(min,max,fixed){
-    return (Math.random() * (min - max) + max).toFixed(fixed);
+    return (Math.random() * (min - max) + max);
 
 }
 
 var randomChangePrice = function(value){
     // ramdom +/- [1%-5%] in price
-    value = (value*randomNumber(-0.05,0.05,2)+ parseFloat(value));
+    value = value*randomNumber(-0.05,0.05,2)+ parseFloat(value);
     value = (value <0.01)? 0.01: value;
-    return (value > 99.99)? 99.99: value.toFixed(2);
+    return (value > 99.99)? 99.99: value;
 }
 
 var randomChangeVolume = function(value){
   // inc [10-30] in Volume
     value = (parseInt(randomNumber(10,30,0))+ parseInt(value));
-    return (value > 1000000)? 1000000: value.toFixed(0);
+    return (value > 1000000)? 1000000: value;
 }
 // sort list by ASC
 var sortList = function(list){

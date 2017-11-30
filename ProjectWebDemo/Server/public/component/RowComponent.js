@@ -8,10 +8,10 @@ var RowComponent = React.createClass({
         <tr>
           <td className="codeStyle">{this.props.code}</td>
           <td>{this.props.company}</td>
-          <td>{this.props.price}</td>
+          <td>{(this.props.price).toFixed(2)}</td>
           <td>{Math.floor(this.props.price* this.props.volume)}</td>
-          <td className={this.getClassName()} >{this.props.change}</td>
-          <td className={this.getClassName()} >{((this.props.change/this.props.price)*100).toFixed(2)}%</td>
+          <td className={this.getClassName()} >{(this.props.change).toFixed(2)}</td>
+          <td className={this.getClassName()} >{((this.props.change/this.props.startPrice)*100).toFixed(2)}%</td>
         </tr>
       );
     }

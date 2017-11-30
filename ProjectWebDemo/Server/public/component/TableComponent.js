@@ -1,9 +1,5 @@
-var tableComponent;
 var list;
 var TableComponent = React.createClass({
-  getInitialState(){
-    return  {listRows: list};
-  },
   render: function() {
     return (
        <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
@@ -17,8 +13,9 @@ var TableComponent = React.createClass({
         </tr>
         {
           list.map(function(row){
-            return <RowComponent code={row.code} company={row.company} price={row.curPrice} volume={row.volume} change={row.change}  changeStyle={row.status} />
+            return <RowComponent code={row.code} company={row.company} price={row.curPrice} volume={row.volume} change={row.change}  startPrice={row.startPrice} />
           })
+
         }
       </table>
     );
@@ -29,7 +26,6 @@ var TableComponent = React.createClass({
 var socket = io("http://localhost:3000");
 
 socket.on("Server-send-data", function(data) {
-  //$("#output").value(data);
   list=data;
   if($('#gainer').hasClass('is-active')){
       ReactDOM.render( < TableComponent /> , document.getElementById('tagGainer'));
