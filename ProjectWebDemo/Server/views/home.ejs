@@ -10,20 +10,34 @@
   <script src="lib/react.min.js"></script>
   <script src="lib/react-dom.min.js"></script>
   <script src="lib/babel.min.js"></script>
-</head>
 
-<body>
-  <label id="table"></label>
-  <div id="root"></div>
-
-  <div id="output"></div>
-
-  <!-- Your custom script here -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </head>
+    <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+      <div class="mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+          <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+            <a href="#gainer" class="mdl-layout__tab is-active">TOP GAINER</a>
+            <a href="#losers" class="mdl-layout__tab">TOP LOSERS</a>
+          </div>
+        </header>
+        <main class="mdl-layout__content">
+          <div class="mdl-layout__tab-panel is-active" id="gainer">
+  				      <div id= "tagGainer"></div>
+          </div>
+          <div class="mdl-layout__tab-panel" id="losers">
+            	  <div id= "tagLoser"></div>
+          </div>
+        </main>
+      </div>
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <script type="text/babel" src="component/RowComponent.js">
   </script>
   <script type="text/babel" src="component/TableComponent.js">
   </script>
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </body>
-
 </html>

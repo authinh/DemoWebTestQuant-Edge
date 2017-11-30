@@ -1,16 +1,18 @@
 var RowComponent = React.createClass({
-    getInitialState(){
-      return{code :this.props.code,company: this.props.company,price: this.props.price,value: this.props.price*this.props.volume,change: 14,changePersent: 10,changeStyle: this.props.changeStyle};
+    getClassName(){
+      console.log(this.props.change);
+       if (parseFloat(this.props.change) > 0.0) return ('upStatus')
+          else if(parseFloat(this.props.change) <0.0 ) return ('downStatus')
     },
     render: function(){
       return(
         <tr>
-          <td>{this.state.code}</td>
-          <td>{this.state.company}</td>
-          <td>{this.state.price}</td>
-          <td>{this.state.value}</td>
-          <td className={this.state.changeStyle} >{this.state.change}%</td>
-          <td className={this.state.changeStyle} >{this.state.changePersent}%</td>
+          <td className="codeStyle">{this.props.code}</td>
+          <td>{this.props.company}</td>
+          <td>{this.props.price}</td>
+          <td>{Math.floor(this.props.price* this.props.volume)}</td>
+          <td className={this.getClassName()} >{this.props.change}</td>
+          <td className={this.getClassName()} >{((this.props.change/this.props.price)*100).toFixed(2)}%</td>
         </tr>
       );
     }

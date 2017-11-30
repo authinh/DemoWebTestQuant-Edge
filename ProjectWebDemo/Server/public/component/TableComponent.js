@@ -1,18 +1,9 @@
 var tableComponent;
 var list;
 var TableComponent = React.createClass({
-  updateListRows(){
-    this.state.listRows = list;
-    this.setState(this.state);
-  },
-  getInitialState(){
-    tableComponent = this;
-    return {listRows: list};
-  },
   render: function() {
-
     return (
-       <table >
+       <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
         <tr>
          <th>Code</th>
          <th>Company</th>
@@ -23,14 +14,9 @@ var TableComponent = React.createClass({
         </tr>
         {
           list.map(function(row){
-            console.log(row);
-            return <RowComponent code={row.code} company={row.company} price={row.curPrice} volume={row.volume} changeStyle= "downStatus"/>
+            return <RowComponent code={row.code} company={row.company} price={row.curPrice} volume={row.volume} change={row.change}  changeStyle={row.status} />
           })
         }
-        <RowComponent code="QES" company="Quant-edge" price="listRows" volume="23130" changeStyle= "downStatus"/>
-        <RowComponent code="QES" company="Quant-edge" price="2000" volume="23130" changeStyle= "upStatus"/>
-        <RowComponent />
-        <RowComponent />
       </table>
     );
   }
@@ -43,5 +29,9 @@ socket.on("Server-send-data", function(data) {
   //$("#output").value(data);
   list=data;
   //tableComponent.updateListRows();
-  ReactDOM.render( < TableComponent /> , document.getElementById('table'));
+  if($('#gainer').hasClass('is-active'))
+  ReactDOM.render( < TableComponent /> , document.getElementById('tagGainer'));
+    else
+    {list.reverse();
+  ReactDOM.render( < TableComponent /> , document.getElementById('tagLoser'));}
 })

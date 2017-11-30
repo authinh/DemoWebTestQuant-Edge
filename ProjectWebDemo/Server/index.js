@@ -4,13 +4,14 @@ var app = express();
 app.use(express.static("./public"));// khai bao folder public cho khac hang tim
 app.set("view engine","ejs");// set ejs
 app.set("views","./views");
-var data = helper.randomRenderData(10);
+var data = helper.randomRenderData(20);
 
 var server = require("http").Server(app);
 var io = require("socket.io")(server);// khai bao thu vien socke.io
 server.listen(3000);
 // on dai dien cho lang nghe, lang nghe event connection
 io.on("connection", function(socket){// co nguoi goi len thi connection chay
+  io.sockets.emit("Server-send-data", data);
 
   console.log("co nguoi ket noi:" + socket.id);
   // ngat ket noi
@@ -22,10 +23,7 @@ io.on("connection", function(socket){// co nguoi goi len thi connection chay
     io.sockets.emit("Server-send-data", data);
     data = helper.randomChangeData(data);
   }, 5000);
-
-
 });
-
 
 app.get("/", function(rep, res){
   res.render("home");

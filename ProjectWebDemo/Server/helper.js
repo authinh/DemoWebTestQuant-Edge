@@ -3,15 +3,16 @@ module.exports =
   randomRenderData: function(size){
   var list = [];
 
-  for (i = 0; i < size; i++){
+  for (i = 10; i < size+10; i++){
     var price = randomNumber(0.01,99.99,2);
     var row = {
-      code: "AAA.XA",
-      company: "company1",
+      code: "A"+i+".XA",
+      company: "company"+i,
       startPrice: price,
       curPrice: price,
       volume: randomNumber(1000,1000000),
-      status: 0
+      status: 0,
+      change: 0
     };
 
     list.push(row);
@@ -28,10 +29,10 @@ module.exports =
       // get value older value of row
       // if newValue > olderValue then status = 1 else status =0;
       row.status = (row.curPrice - row.startPrice>0)? 1:-1;
-      row.change = row.curPrice - row.startPrice;
+      row.change = (row.curPrice - row.startPrice).toFixed(2);
       data[index] = row;
     }
-    return data;
+    return sortList(data);
   }
 };
 

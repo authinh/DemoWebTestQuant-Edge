@@ -3,3 +3,6 @@
   -2. Tìm hiểu về react.js + Material-UI (1h) - done
   -3. Tạo project, setup môi trường, up code lên github(30') -done
   -4. Tạo Server side(1h) - done
+30/11/2017
+  -1. Tạo Client Side(1h) - done
+  -2. Review code + test  - inprogress
