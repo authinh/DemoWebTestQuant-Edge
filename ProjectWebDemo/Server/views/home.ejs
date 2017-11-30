@@ -4,40 +4,37 @@
   <title> web demo
   </title>
   <link rel="stylesheet" type="text/css" href="css/rowStyle.css">
-  <script src="lib/jquery.js"></script>
-  <script src="socket.io/socket.io.js"></script>
-
-  <script src="lib/react.min.js"></script>
-  <script src="lib/react-dom.min.js"></script>
-  <script src="lib/babel.min.js"></script>
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    </head>
-    <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-      <div class="mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-          <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-            <a href="#gainer" class="mdl-layout__tab is-active">TOP GAINER</a>
-            <a href="#losers" class="mdl-layout__tab">TOP LOSERS</a>
-          </div>
-        </header>
-        <main class="mdl-layout__content">
-          <div class="mdl-layout__tab-panel is-active" id="gainer">
-  				      <div id= "tagGainer"></div>
-          </div>
-          <div class="mdl-layout__tab-panel" id="losers">
-            	  <div id= "tagLoser"></div>
-          </div>
-        </main>
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary" style="width: 530px;">
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark" id="tagBar">
+        <a href="#gainer" class="mdl-layout__tab is-active">TOP GAINER</a>
+        <a href="#losers" class="mdl-layout__tab">TOP LOSERS</a>
       </div>
+    </header>
+    <main class="mdl-layout__content" style="width: 530px;">
+      <div class="mdl-layout__tab-panel is-active" id="gainer">
+        <div id="tagGainer" style="width: 530px;"></div>
+      </div>
+      <div class="mdl-layout__tab-panel" id="losers">
+        <div id="tagLoser" style="width: 530px;"></div>
+      </div>
+    </main>
+  </div>
+  <script src="lib/jquery.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="lib/react.min.js"></script>
+  <script src="lib/react-dom.min.js"></script>
+  <script src="lib/babel.min.js"></script>
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <script type="text/babel" src="component/RowComponent.js">
   </script>
   <script type="text/babel" src="component/TableComponent.js">
   </script>
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
 </body>
 </html>

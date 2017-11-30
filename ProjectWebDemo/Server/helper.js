@@ -37,9 +37,6 @@ module.exports =
 };
 
 var randomNumber = function(min,max,fixed){
-  console.log("min: "+min);
-  console.log("max: "+max);
-  console.log(Math.random() * (min - max) + max);
     return (Math.random() * (min - max) + max).toFixed(fixed);
 
 }
@@ -53,7 +50,6 @@ var randomChangePrice = function(value){
 
 var randomChangeVolume = function(value){
   // inc [10-30] in Volume
-    console.log("value: "+value);
     value = (parseInt(randomNumber(10,30,0))+ parseInt(value));
     return (value > 1000000)? 1000000: value.toFixed(0);
 }

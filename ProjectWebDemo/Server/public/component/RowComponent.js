@@ -1,6 +1,5 @@
 var RowComponent = React.createClass({
     getClassName(){
-      console.log(this.props.change);
        if (parseFloat(this.props.change) > 0.0) return ('upStatus')
           else if(parseFloat(this.props.change) <0.0 ) return ('downStatus')
     },

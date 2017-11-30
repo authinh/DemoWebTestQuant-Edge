@@ -1,6 +1,9 @@
 var tableComponent;
 var list;
 var TableComponent = React.createClass({
+  getInitialState(){
+    return  {listRows: list};
+  },
   render: function() {
     return (
        <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
@@ -28,10 +31,15 @@ var socket = io("http://localhost:3000");
 socket.on("Server-send-data", function(data) {
   //$("#output").value(data);
   list=data;
-  //tableComponent.updateListRows();
-  if($('#gainer').hasClass('is-active'))
-  ReactDOM.render( < TableComponent /> , document.getElementById('tagGainer'));
-    else
-    {list.reverse();
-  ReactDOM.render( < TableComponent /> , document.getElementById('tagLoser'));}
+  if($('#gainer').hasClass('is-active')){
+      ReactDOM.render( < TableComponent /> , document.getElementById('tagGainer'));
+    }else{
+      list=list.reverse();
+      ReactDOM.render( < TableComponent /> , document.getElementById('tagLoser'));}
 })
+
+$(document).ready(function(){
+  $("#tagBar").click(function(){
+    socket.emit("Client-send-data");
+  });
+});
