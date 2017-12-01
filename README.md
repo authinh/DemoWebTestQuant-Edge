@@ -6,3 +6,9 @@
 30/11/2017
   -1. Tạo Client Side(1h) - done
   -2. Review code + test  - done
+
+How To Start
+  step 1. Mở cửa sổ terminal(linux), cmd(window) 
+  step 2. Di chuyển tới thư mực Server trong project
+  Step 3. Sử dụng lệnh: node index.js =>để start sever
+  Step 4. Truy cập vào: http://localhost:3000
